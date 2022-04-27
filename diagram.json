@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "author": "Kaesha Talreja",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 6.67, "left": 56.67, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -54.2,
+      "left": -133.17,
+      "attrs": { "distance": "232" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": 13.8, "left": 212.17, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 88.97,
+      "left": 208.43,
+      "attrs": { "color": "red" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "ultrasonic1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "ultrasonic1:VCC", "esp:3V3", "red", [ "v240.57", "h265.56", "v-118", "h-18" ] ],
+    [ "ultrasonic1:TRIG", "esp:D12", "green", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "esp:D26", "orange", [ "v0" ] ],
+    [ "servo1:V+", "esp:3V3", "red", [ "h-18.67", "v100.23" ] ],
+    [ "servo1:GND", "esp:GND.1", "black", [ "h-38.67", "v91.73", "h-10" ] ],
+    [ "servo1:PWM", "esp:D19", "violet", [ "h0" ] ],
+    [ "led1:C", "esp:GND.1", "black", [ "v0" ] ],
+    [ "led1:A", "esp:D21", "cyan", [ "v7.72", "h-50.9", "v-66.66" ] ]
+  ]
+}
